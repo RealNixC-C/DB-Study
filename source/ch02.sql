@@ -92,7 +92,7 @@ CREATE TABLE burgers (
     gram INTEGER, -- 무기(정수: g)
     kcal INTEGER, -- 열량{정수: kcal)
     protein INTEGER, -- 담백질량(정수: g)
-	PRIMARY KEY (id) -- 기본기 설정: i
+	PRIMARY KEY (id) -- 기본키 설정: i
 );
 
 -- 기본키 : 레코드(row)를 대표하는 칼럼 (예: 사람의 주민번호 )
