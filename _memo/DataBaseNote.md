@@ -1,4 +1,4 @@
-[42일차 06.11]
+
 
 call by value와 call by reference
 
@@ -18,9 +18,27 @@ call by value와 call by reference
 모범답안	2	제출답안	4
 
 
-
 MySQL extension 설치
 
 100g당 가격을 다음과 같이 조회
 
 집계 함수(Aggregate Function)
+
+DISTINCT (중복제거함수)
+
+
+-------------------  [42일차 06.11] ------------------- 
+ch05.sql
+
+1. 다양한 자료형 활용하기
+
+UNSIGNED(언사인드) 제약 조건 부여 가능: 음수 값을 허용하지 않는 정수
+정수형의 종류: TINYINT, SMALLINT, MEDIUMINT, INTEGER(또는 INT), BIGINT
+실수형 종류: 
+1) 부동 소수점(floating-point) = FLOAT, DOUBLE
+2) 고정 소수점(fixed-point) = DECIMAL
+
+
+2. 문자형
+1) CHAR
+2) VARCHAR 
