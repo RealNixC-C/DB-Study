@@ -1,3 +1,4 @@
+-- Active: 1749830440641@@127.0.0.1@3306@data_type
 /*
 5. 다양한 자료형 활용하기
 5.1 자료형이란
@@ -39,7 +40,7 @@ CREATE TABLE users (
 );
 -- 안정성 보장: 재고는 음수가 될 수 없음 
 CREATE TABLE product (
-  stock INTEGER UNSINGED
+  stock INTEGER UNSIGNED
 );
 
 -- 2) 실수형
@@ -130,7 +131,7 @@ CREATE TABLE acticles (
   short_description TINYTEXT, -- 짧은 설명(최대 255Byte)
   comments TEXT, -- 댓글(최대 65KB)
   content MEDIUMTEXT, -- 본문(최대 16MB)
-  additional_info LONG TEXT, -- 추가 정보(최대 4GB)
+  additional_info LONGTEXT -- 추가 정보(최대 4GB)
 );
 
 
@@ -163,7 +164,7 @@ CREATE TABLE files (
 
 CREATE TABLE memberships (
   name VARCHAR(100), -- 회원명(가변 길이 문자: 최대 100자)
-  level ENUM('bronze', 'silver', 'gold'), -- 회원 레벨(선택 목록 중 택1)
+  level ENUM('bronze', 'silver', 'gold') -- 회원 레벨(선택 목록 중 택1)
 );
 
 
