@@ -42,3 +42,51 @@ UNSIGNED(언사인드) 제약 조건 부여 가능: 음수 값을 허용하지 �
 2. 문자형
 1) CHAR
 2) VARCHAR 
+
+AUTO_INCREMENT의 값은 1씩 증가하고 중간에 데이터를 삭제하면 그 데이터만 제외시키고
+숫자는 계속 증가한다
+
+-------------------  [42일차 06.12] ------------------- 
+ch06.sql
+
+1. 관계
+
+기본키(PK, Primary Key)
+테이블의 각 행을 고유하게 식별할 수 있는 컬럼
+레코드를 구분하는 컬럼 또는 컬럼의 조합을 말함
+
+외래키(FK, Foreign Key)
+다른 테이블의 기본키를 가리키는 컬럼
+두 테이블을 연결하는 역할
+
+1) 일대일 관계(1:1, one-to-one) - 외래키로 설정하는 값에 제약조건 UNIQUE를 설정하는것이 포인트, 외래키가 양쪽중 어느 테이블에 있어도 상관없음
+2) 일대다 관계(1:N, one-to-many) - 외래키가 "다"에 해당하는 쪽에 있어야만함
+3) 다대다 관계(N:M, many-to-many) - 중간 테이블을 거침, 중간 테이블에 양쪽에 해당하는 외래키를 지정하여 관계를 맺음
+
+2. 제약조건
+
+1) AUTO_INCREMENT
+2) NOT NULL
+3) CHECK
+4) DEFAULT
+5) UNSIGNED
+6) UNIQUE
+
+
+ch06_07_selfcheck.png 참고
+
+-- 2. 특정 사용자가 올린 사진의 좋아요 개수
+-- 예: 홍팍이 올린 모든 사진의 좋아요 개수는?
+SELECT COUNT(*)
+FROM users u -- 1) 사용자 정보를 가지고
+JOIN photos p -- 2) 사진 정보를 합쳐서
+  ON u.id = p.user_id
+JOIN likes l -- 3) 좋아요 정보도 합쳐서
+  ON p.id = l.photo_id
+WHERE nickname = '홍팍'; -- 홍팍이 올린
+
+-- 4. 모든 댓글 본문과 해당 댓글의 달린 사진의 파일명
+-- 예: 모든 댓글 본문과 함께 그 댓글이 달린 사진의 파일명을 함께 조회하려면?
+SELECT body, filename
+FROM comments c
+LEFT JOIN photos p ON c.photo_id = p.id;
