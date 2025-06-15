@@ -1,5 +1,3 @@
--- Active: 1749607595528@@127.0.0.1@3306@stargram
--- Active: 1749607595528@@127.0.0.1@3306@relation
 /*
 7. 테이블 조인하기
 7.1 조인이란
@@ -12,10 +10,10 @@
 -- 두 테이블이 동시에 가지고 있는 컬럼으로 조인 하기 위해 사용하는 컬럼
 -- 보통 한 테이블의 외래키(FK)와 다른 테이블의 기본키(PK)를 사용
 
--- (참고) 외래키를 사용하지 않아도 공통적인 데이터가 있따면 JOIN은 할 수 있음
+-- (참고) 외래키를 사용하지 않아도 공통적인 데이터가 있다면 JOIN은 할 수 있음
 -- 그럼 외래키는 왜 쓰는 걸까? 데이터의 무결성을 보장하기 위한 제약 조건
 -- 존재하지 않는 ID를 참조하지 못하게 막음
--- 부모 테이블 데이터 삭제 시 자식 처리 정의 가능
+-- 부모 테이블 데이터 삭제 시 자식 데이터를 어떻게 처리할지 정의 가능
 -- 실수로 잘못된 참조값을 넣는 것 방지
 
 -- 조인 하기
@@ -62,7 +60,7 @@ JOIN users ON comments.user_id = users.id; -- 조인 컬럼(외래키) = 조인 
 
 -- 3) 조인 조건이 필요
 -- ON 절과 함께 사용
--- 두 테이블을 어떻게 연결하지를 조인 조건으로 명시
+-- 두 테이블을 어떻게 연결할지를 조인 조건으로 명시
 
 -- 4) 연속적인 조인 가능
 -- 연속 조인 연습
@@ -253,7 +251,7 @@ RIGHT JOIN users u ON p.user_id = u.id
 
 -- 1. 특정 사용자가 올린 사진 목록 출력하기
 -- 예: 홍팍이 업로드한 모든 사진의 파일명은?
-SELECT filename
+SELECT nickname, filename
 FROM users u
 JOIN photos p ON u.id = p.user_id
 WHERE nickname = '홍팍';
@@ -267,15 +265,21 @@ JOIN photos p
   ON u.id = p.user_id
   AND nickname = '홍팍';
 
+
 -- 2. 특정 사용자가 올린 사진의 좋아요 개수
 -- 예: 홍팍이 올린 모든 사진의 좋아요 개수는?
-SELECT COUNT(*)
-FROM users u -- 1) 사용자 정보를 가지고
-JOIN photos p -- 2) 사진 정보를 합쳐서
-  ON u.id = p.user_id
-JOIN likes l -- 3) 좋아요 정보도 합쳐서
-  ON p.id = l.photo_id
-WHERE nickname = '홍팍'; -- 홍팍이 올린
+-- SELECT COUNT(*)
+-- SELECT *
+-- FROM users u -- 1) 사용자 정보를 가지고
+-- JOIN photos p -- 2) 사진 정보를 합쳐서
+--   ON u.id = p.user_id
+-- JOIN likes l -- 3) 좋아요 정보도 합쳐서
+--   ON p.id = l.photo_id
+-- WHERE nickname = '홍팍'; -- 홍팍이 올린
+SELECT *
+FROM users
+JOIN photos ON users.id = photos.user_id
+JOIN likes ON photos.id = likes.photo_id;
 
 -- 3. 특정 사용자가 쓴 댓글 개수
 -- 예: 해삼이가 작성한 모든 댓글의 개수는?

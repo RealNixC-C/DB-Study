@@ -17,6 +17,6 @@
 
 -- 5 닉네임이 '해삼'인 사용자가 '백호.jpg' 사진에 좋아요를 눌렀습니다. 이 정보를 삽입하는 쿼리문을 작성하세요. 
 INSERT INTO likes (user_id, photo_id)
-VALUES  (3, 4);
+VALUES (3, 4);
 
 
