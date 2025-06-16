@@ -68,4 +68,3 @@ WHERE department = 'Sales';
 SELECT MAX(salary) - AVG(salary)
 FROM employees2;
 
-

@@ -303,13 +303,3 @@ LEFT JOIN photos p ON c.photo_id = p.id;
 -- ④ 조인 조건에 AND 연산자를 사용하면 조인과 동시에 데이터 필터링을 할 수 있다. (  )
 
 -- 정답: O X O O
-
-
-
-
-
-
-
-
-
-

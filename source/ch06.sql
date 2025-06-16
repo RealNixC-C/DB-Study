@@ -543,16 +543,3 @@ FROM likes;
 -- (ㅁ) AUTO_INCREMENT
 
 -- 정답: ㄹㄴㄷㄱㄹ
-
-
-
-
-
-
-
-
-
-
-
-
-

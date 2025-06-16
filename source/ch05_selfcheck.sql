@@ -30,16 +30,3 @@ SELECT COUNT(*)
 FROM orders
 WHERE MONTH(created_at) = 10 OR MONTH(created_at) = 12;
 -- WHERE MONTH(created_at) IN (10, 12);
-
-
-
-
-
-
-
-
-
-
-
-
-

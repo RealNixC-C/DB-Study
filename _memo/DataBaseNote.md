@@ -99,7 +99,7 @@ ch06.sql Relation
 5) UNSIGNED
 6) UNIQUE
 
--------------------  [42일차 06.13] ------------------- 
+-------------------  [43일차 06.13] ------------------- 
 ch07.sql JOIN
 
 ch06_07_selfcheck.png 참고
@@ -119,3 +119,42 @@ WHERE nickname = '홍팍'; -- 홍팍이 올린
 SELECT body, filename
 FROM comments c
 LEFT JOIN photos p ON c.photo_id = p.id;
+
+-------------------  [44일차 06.16] ------------------- 
+
+ch07_quiz.sql
+
+3번 문제
+SELECT name, title
+FROM borrow_records br
+JOIN members m ON br.member_id = m.id
+JOIN books b ON br.book_id = b.id;
+
+그룹화
+GROUP BY 컬럼1, 컬럼2
+HAVING 
+-- 1. 그룹화 필터링(HAVING)
+-- 그룹화한 결과에서 특정 조건을 만족하는 그룹의 데이터만 가져오는 것
+-- GROUP BY 절에 HAVING 절을 추가하여 수행
+-- 주로 집계 함수 결과에 조건을 걸 때 사용
+
+ORDER BY 컬럼1 ASC | DESC
+LIMIT N;
+
+대부분의 경우 SELECT가 가장 마지막에 실행되지만
+ORDER BY와 LIMIT는 그 후에 실행된다
+ORDER BY - SELECT로 조회한 데이터를 바탕으로 오름차순 or 내림차순으로 정렬
+LIMIT N; - 조회한 데이터 혹은 정렬한 데이터를 바탕으로 몇개를 출력할지 정함
+LIMIT N OFFSET M; = 시작점을 정할 수 있음 M = 건너뛸 레코드의 개수, 
+OFFSE은 생략 가능하지만 생략하게되면 순서가바뀜 LIMIT M, N
+
+ch08.sql Line472
+SELECT 
+  nickname AS '주문자명',
+  SUM(amount) AS '주문 금액'
+FROM users u
+JOIN orders o ON u.id = o.user_id
+JOIN payments p ON o.id = p.order_id
+GROUP BY nickname
+HAVING SUM(amount) >= 30000;
+

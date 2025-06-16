@@ -238,13 +238,3 @@ SELECT * FROM burgers;
 -- (ᄆ) DROP DATABASE 문
 
 -- 정답: ㄷㄹㄱㄴㅁ
-
-
-
-
-
-
-
-
-
-

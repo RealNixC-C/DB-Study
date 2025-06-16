@@ -264,11 +264,3 @@ WHERE math > 80 AND programming > 80 OR English > 90;
 -- ⑤ SELECT 절의 '(math + english + programming) / 3' 수식에 괄호를 삭제하고 조회해도 정상적으로 중간고사 평균이 계산된다.
 
 -- 정답: 2, 5
-
-
-
-
-
-
-
-

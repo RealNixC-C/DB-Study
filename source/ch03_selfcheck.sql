@@ -65,5 +65,3 @@ SELECT DATABASE();
 USE mapdonalds;
 -- 버거 테이블 조회
 SELECT * FROM burgers;
-
-

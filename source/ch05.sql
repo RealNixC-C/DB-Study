@@ -543,12 +543,3 @@ WHERE name BETWEEN 'ㄱ' AND '깋'; -- name의 첫 글자가 'ㄱ'~'깋' 사이�
 -- (ㅁ) TIME_TO_SEC()
 
 -- 정답:ㄴㄷㄹㄱㅁ
-
-
-
-
-
-
-
-
-
