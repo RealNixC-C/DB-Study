@@ -158,3 +158,36 @@ JOIN payments p ON o.id = p.order_id
 GROUP BY nickname
 HAVING SUM(amount) >= 30000;
 
+-------------------  [44일차 06.17] ------------------- 
+
+서브쿼리
+SELECT - 1x1 단일값만 반환하는 서브쿼리만 사용가능
+여러 행을 반환하게 되면 SQL이 어떤 값을 사용해야 할지 모름
+
+FROM/JOIN - NxM 반환하는 행과 컬럼의 개수에 제한이 없음, 단! AS 키워드를 통한 별칭은 지정해야함 안하게되면 alias 에러 발생
+          - FROM/JOIN의 값으로는 TABLE이 사용되기때문에 다양한 값이 들어올 수 있음
+
+WHERE/HAVING - 1x1, Nx1 반환하는 서브쿼리만 사용 가능(필터링의 조건으로 값 또는 값의 목록을 사용하기 때문)
+예 - WHERE id = (서브쿼리의 결과값, 1), WHERE id = (서브쿼리의 결과목록, 1, 2, 3)
+
+IN, ANY, ALL, EXISTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
