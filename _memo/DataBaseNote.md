@@ -165,7 +165,7 @@ SELECT - 1x1 단일값만 반환하는 서브쿼리만 사용가능
 여러 행을 반환하게 되면 SQL이 어떤 값을 사용해야 할지 모름
 
 FROM/JOIN - NxM 반환하는 행과 컬럼의 개수에 제한이 없음, 단! AS 키워드를 통한 별칭은 지정해야함 안하게되면 alias 에러 발생
-          - FROM/JOIN의 값으로는 TABLE이 사용되기때문에 다양한 값이 들어올 수 있음
+- FROM/JOIN의 값으로는 TABLE이 사용되기때문에 다양한 값이 들어올 수 있음
 
 WHERE/HAVING - 1x1, Nx1 반환하는 서브쿼리만 사용 가능(필터링의 조건으로 값 또는 값의 목록을 사용하기 때문)
 예 - WHERE id = (서브쿼리의 결과값, 1), WHERE id = (서브쿼리의 결과목록, 1, 2, 3)
@@ -173,21 +173,43 @@ WHERE/HAVING - 1x1, Nx1 반환하는 서브쿼리만 사용 가능(필터링의 
 IN, ANY, ALL, EXISTS
 
 
+-------------------  [45일차 06.18] ------------------- 
+
+DATETIME 타입: DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+DATE 타입: reg_date DATETIME NOT NULL DEFAULT CURRENT_DATE
+ON UPDATE CURRENT_TIMESTAMP: UPDATE시 자동으로 수정 시간도 갱신
+
+Eclipe chap11 > 01 > DateExample 
+날짜 객체 훑어보기
 
 
+1. Date클래스를 사용할땐 SimpleDateFormat사용
+  Date now = new Date();
+  SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh시 mm분 ss초");
+  String strNow2 = sdf.format(now); // 원하는 날짜 포맷으로 문자열 반환
+  System.out.println(strNow2); = 2025년 06월 18일 오후 02시 59분 26초
+
+2. LocalDateTime클래스를 사용할땐 DateTimeFormatter사용
+  LocalDateTime dateTime = LocalDateTime.now();
+  DateTimeFormatter fommatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초");
+  System.out.println(dateTime.format(fommatter)); = 2025년 06월 18일 14시 59분 26초
+
+Eclipse -> jdbc-board프로젝트 구조 분석하기
 
 
-
-
-
-
-
-
-
-
-
-
-
+-- 게시글에 달린 댓글까지 지워지는 쿼리문
+-- 댓글 테이블
+CREATE TABLE comment (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  board_no INTEGER NOT NULL,
+  commenter VARCHAR(50),
+  comment TEXT,
+  reg_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (board_no) REFERENCES board(no) ON DELETE CASCADE
+  -- ON DELETE CASCADE: 외래키(FK)에 설정하는 옵션으로
+  -- 부모 테이블의 행이 삭제될 때, 해당 행을 참조하는 자식 테이블의 행들도 자동으로 삭제
+  -- 예: board의 특정 게시글이 삭제되면 그 게시글에 달린 comment들도 자동으로 삭제
+);
 
 
 
