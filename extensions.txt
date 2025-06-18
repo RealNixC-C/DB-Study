@@ -1,0 +1,8 @@
+ecmel.vscode-html-css
+gruntfuggly.todo-tree
+kisstkondoros.vscode-gutter-preview
+mhutchie.git-graph
+oderwat.indent-rainbow
+ritwickdey.liveserver
+solnurkarim.html-to-css-autocompletion
+vincaslt.highlight-matching-tag
