@@ -13,7 +13,7 @@
 -- group_analysis DB 생성 및 진입
 CREATE DATABASE group_analysis;
 USE group_analysis;
-
+SELECT 'hi';
 -- students 테이블 생성
 CREATE TABLE students (
 	id INTEGER AUTO_INCREMENT, 	-- 아이디(자동으로 1씩 증가)
