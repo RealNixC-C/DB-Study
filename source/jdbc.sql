@@ -1,4 +1,4 @@
--- Active: 1750257071293@@127.0.0.1@3306@jdbc_board
+-- Active: 1750425456684@@127.0.0.1@3306@mysql
 -- 게시판 프로젝트 데이터베이스 생성
 CREATE DATABASE jdbc_board;
 USE jdbc_board;
